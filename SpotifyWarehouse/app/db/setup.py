@@ -12,17 +12,4 @@ def get_conn():
                            dbname=config.DBNAME,
                            row_factory=dict_row)
 
-def get_cursor():
-    conn = get_conn()
-    try:
-        with conn.cursor() as cur:
-            yield cur
-        conn.commit()
-    except Exception:
-        conn.rollback()
-        raise
-    finally:
-        conn.close()
-
-
 
