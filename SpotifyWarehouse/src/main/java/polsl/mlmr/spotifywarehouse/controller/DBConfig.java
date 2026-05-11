@@ -4,6 +4,9 @@
  */
 package polsl.mlmr.spotifywarehouse.controller;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
 import java.sql.Connection;
@@ -17,16 +20,34 @@ import java.util.Properties;
  * @author milos
  */
 public class DBConfig implements ServletContextListener {
+    
+    /**
+     * emf is the instance of EntityManagerFactory which will be used by the entire application.
+     */
+    private EntityManagerFactory emf;
+    
+    /**
+     * em is the instance of the EntityManager which will be used by the entire application.
+     */
+    private EntityManager em;
+    
     @Override
-    public void contextInitialized(ServletContextEvent event){
-        String url = "jdbc:postgresql://localhost:5432/postgres";
-        Properties props = new Properties();
-        props.setProperty("user", "postgres");
-        props.setProperty("password", "m0rg3n");
-        // props.setProperty("ssl", "true");
+    public void contextInitialized(ServletContextEvent event){       
+        
+        em = emf.createEntityManager();
         
         try{
-            Connection conn = DriverManager.getConnection(url, props);           
+            Object version = em.createNativeQuery("SELECT version()").getSingleResult();
+            System.out.println(version);
+        } finally{
+            em.close();
+        }
+        
+        
+        // props.setProperty("ssl", "true");
+        /*
+        try{
+            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/", "postgres", "m0rg3n");           
             event.getServletContext().setAttribute("conn", conn);
             System.out.println("Connection established");
             
@@ -40,12 +61,14 @@ public class DBConfig implements ServletContextListener {
             st.execute(testTable);
             
             st.close();
+            System.out.println("Meow");
             
         }
         catch(Exception e){
             System.out.println("Error setting up the DB:" + e.getMessage());
             e.printStackTrace();
         }
+        */
     }
     
     @Override

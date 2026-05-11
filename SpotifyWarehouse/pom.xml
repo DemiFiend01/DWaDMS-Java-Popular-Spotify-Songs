@@ -20,6 +20,11 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.2</version>
+        </dependency>
+        <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter-api</artifactId>
             <version>5.10.3</version>
@@ -47,11 +52,6 @@
             <groupId>org.apache.derby</groupId>
             <artifactId>derbyclient</artifactId>
             <version>10.14.2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.7.11</version> <!-- Use the latest version -->
         </dependency>
     </dependencies>
     
