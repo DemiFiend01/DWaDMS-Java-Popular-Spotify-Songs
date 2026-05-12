@@ -1,0 +1,42 @@
+<!DOCTYPE html> 
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="{{ url_for('static', filename='output/css/mySlides.css')}}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='output/css/styles.css')}}">
+</head>
+<body>
+  <header>
+    <title>Spotify Warehouse Project</title>
+  </header>
+  <main>
+    
+    {% if pictures %}
+      <h1><a href="https://www.gigasheet.com/sample-data/spotify-dataset" title="Dataset link" target="_blank">Spotify</a> Data Warehouse Analysis Results:</h1>
+    {% else %}
+      <h1>There are no results</h1>
+    {% endif %}
+
+    <div class="slideshow slideshow_container">
+        {% for picture in pictures %}
+        <div class="slideshow mySlides fade">
+            <a href="{{ picture.src }}">
+                <img class="slideshow mySlidesPhoto" src="{{ picture.src }}" >
+            </a>
+            <p class="slideshow mySlidesNumber">{{ loop.index }} / {{ pictures|length }}</p>
+        </div>
+        {% endfor %}
+        <a class="slideshow mySlidesPrev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="slideshow mySlidesNext" onclick="plusSlides(1)">&#10095;</a>
+
+        <div class="slideshow mySlidesButton">
+          {% for picture in pictures %}
+            <div class=" mySlidesDot" onclick="currentSlide({{ loop.index }})"></div>
+          {% endfor %}
+        </div>
+    </div>
+
+  </main>
+  <script src="{{ url_for('static', filename='output/js/script.js')}}"></script>
+</body>
+</html>

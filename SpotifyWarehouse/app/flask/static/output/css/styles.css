@@ -1,0 +1,13 @@
+body {
+  font-family: 'Trebuchet MS', sans-serif;
+  background-color: mintcream;
+}
+
+h1 {
+    text-align: center;
+}
+
+a:link, a:visited {
+    color: black;
+    text-decoration: underline;
+}

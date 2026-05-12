@@ -1,0 +1,93 @@
+.slideshow {
+    box-sizing: border-box;
+}
+
+.slideshow_container {
+    max-width: 70%;
+    position: relative;
+    margin: auto;
+
+}
+
+.mySlides {
+    display: none;
+    position: relative;
+}
+
+.mySlidesPrev,
+.mySlidesNext {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+    margin-top: -0.5rem;
+    padding: 1rem;
+    font-weight: bold;
+    transition: 0.3s ease;
+    user-select: none;
+    box-shadow: rgb(0, 0, 0, 0.2) 1px 1px 2px 1px, rgb(0, 0, 0, 0.2) -1px -1px 2px 1px;
+}
+
+.mySlidesPrev {
+    left: -3rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: aliceblue;
+}
+
+.mySlidesNext {
+    right: -3rem;
+    border-radius: 1rem;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: aliceblue;
+}
+
+.mySlidesPhoto {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAp0lEQVRYR+3YQQqAMAxEUXuA3v+gPYCu4kKR4UPaGhh3kiGmr0XE1ns/jwJXKzfoGKP9ETYgb9Fyg8YKYnB1P3sXPkXVYM/6tkFnP5j2r3tG6UpX5/0ezRKve0bLvfCztiyrj7c+SzL6WNSiq7+GqLjPKBVTeYsqIVq3KBVTeYsqIVq3KBVTeYsqIVq3KBVTeYsqIVq3KBVTeYsqIVp/idIGq/Nl/o9ed0TYZ1/Oj6UAAAAASUVORK5CYII=") 14 / 14px / 0 round;
+    border-width: auto;
+    border-top: 0.7rem;
+    border-style: solid;
+    box-shadow: rgb(0, 0, 0, 0.2) 1px 1px 2px 1px, rgb(0, 0, 0, 0.2) -1px -1px 2px 1px;
+}
+
+.mySlidesNumber {
+    text-align: center;
+    margin-top: 0.4rem;
+}
+
+.mySlidesButton {
+    text-align: center;
+}
+
+.mySlidesDot {
+    cursor: pointer;
+    height: 1rem;
+    width: 1rem;
+    background-color: black;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    box-shadow: rgb(0, 0, 0, 0.2) 1px 1px 2px 1px, rgb(0, 0, 0, 0.2) -1px -1px 2px 1px;
+}
+
+.mySlidesDotActive {
+    background-color: #717171;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 0.3s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
